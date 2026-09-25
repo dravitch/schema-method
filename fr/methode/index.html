@@ -3,30 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Découvrir, cartographier, tester et décider sans confondre une revendication avec le projet entier.">
-  <title>Méthode | SCHEMA</title>
+  <meta name="description" content="Découvrir, cartographier, qualifier et tester avant la prochaine décision d'allocation.">
+  <title>La méthode | SCHEMA</title>
   <link rel="alternate" hreflang="fr" href="/schema-method/fr/methode/"><link rel="alternate" hreflang="en" href="/schema-method/en/method/">
   <link rel="alternate" hreflang="x-default" href="/schema-method/">
   <link rel="stylesheet" href="/schema-method/assets/theme.css">
+  <script type="module" src="/schema-method/assets/app.mjs"></script>
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
   
   <header>
     <a class="brand" href="/schema-method/fr/" aria-label="SCHEMA">SCHEMA</a>
-    <nav aria-label="Navigation principale"><a href="/schema-method/fr/">Accueil</a><a href="/schema-method/fr/methode/" aria-current="page">Méthode</a><a href="/schema-method/fr/preuves/">Preuves</a><a href="/schema-method/fr/cas-fondateur/">Cas fondateur</a><a href="/schema-method/fr/a-propos/">À propos</a></nav>
-    <div class="lang-zone"><a class="switch" href="/schema-method/en/method/" lang="en" hreflang="en" aria-label="Passer à la version anglaise de cette page">English</a></div>
+    <nav aria-label="Navigation principale"><a href="/schema-method/fr/">Pourquoi SCHEMA</a><a href="/schema-method/fr/methode/" aria-current="page">La méthode</a><a href="/schema-method/fr/en-pratique/">En pratique</a></nav>
+    <div class="lang-zone"><button class="appearance-switch" type="button" role="switch" data-theme-toggle aria-checked="false" aria-label="Changer de thème" title="Changer de thème"><span class="appearance-check"><span class="appearance-icons"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span></span></button><a class="language-switch" href="/schema-method/en/method/" lang="en" hreflang="en" aria-label="Passer à la version anglaise de cette page" title="English"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg><span class="sr-only">English</span></a></div>
   </header>
-  <main id="contenu"><p class="eyebrow">Méthode v0.1</p>
-<h1>Voir avant de noter.</h1>
-<p class="lead">SCHEMA commence par rendre visible l'état initial sans son propre vocabulaire. Le cadre ne doit pas sélectionner les faits qui le confirmeront.</p>
-<div class="grid"><article class="card"><span class="number">00</span><h2>Découvrir</h2><p>Rendre visibles les faits, acteurs, dépendances et inconnues sans appliquer SCHEMA.</p></article><article class="card"><span class="number">01</span><h2>Cartographier</h2><p>Relier chaque maillon et chaque interface du problème jusqu'à la valeur.</p></article><article class="card"><span class="number">02</span><h2>Qualifier</h2><p>Distinguer établi, soutenu, indéterminé, contradictoire et non testable.</p></article><article class="card"><span class="number">03</span><h2>Tester</h2><p>Préenregistrer au plus trois vérifications capables de changer la décision.</p></article></div>
-<h2>Décisions séparées</h2>
-<p>La revendication, l'actif et la trajectoire opérationnelle reçoivent chacun leur propre décision.</p>
-<div class="grid"><article class="card"><h3>Poursuivre</h3><p>Le parcours requis pour l'étape suivante est soutenu.</p></article><article class="card"><h3>Tester</h3><p>Une ignorance décisive peut être levée par une vérification bornée.</p></article><article class="card"><h3>Borner</h3><p>La revendication doit rester dans son domaine démontré.</p></article><article class="card"><h3>Pivoter</h3><p>L'actif est utile, mais pas dans la trajectoire annoncée.</p></article><article class="card"><h3>Suspendre</h3><p>Une dépendance ou une décision externe manque.</p></article><article class="card"><h3>Arrêter</h3><p>Une contradiction établie invalide la trajectoire considérée.</p></article></div></main>
+  <main id="contenu"><p class="eyebrow">Une discipline de décision</p>
+<h1>Voir ce qui est connu. Organiser ce qui manque.</h1>
+<p class="lead">SCHEMA ne force pas une réponse binaire. Une inconnue déclarée devient un programme de preuve associé à une décision.</p>
+<div class="grid"><article class="card"><span class="number">00</span><h2>Découvrir</h2><p>Recueillir les faits, acteurs, actifs, dépendances et inconnues dans le langage du projet.</p></article><article class="card"><span class="number">01</span><h2>Cartographier</h2><p>Relier chaque maillon du problème jusqu'à la valeur et rendre visibles les ruptures.</p></article><article class="card"><span class="number">02</span><h2>Qualifier</h2><p>Distinguer ce qui est établi, soutenu, indéterminé, contradictoire ou non testable.</p></article><article class="card"><span class="number">03</span><h2>Tester</h2><p>Choisir au plus trois vérifications capables de modifier la prochaine décision.</p></article></div>
+<h2>Une preuve n'a de sens que dans sa portée</h2>
+<div class="table-scroll"><table><thead><tr><th>État</th><th>Ce qu'il autorise</th></tr></thead><tbody><tr><td>Établi</td><td>La preuve primaire soutient la propriété dans la portée annoncée.</td></tr><tr><td>Soutenu</td><td>Des éléments convergent, mais une vérification ou une limite reste ouverte.</td></tr><tr><td>Indéterminé</td><td>La preuve manque dans les deux sens; il faut choisir la prochaine observation.</td></tr><tr><td>Contradictoire</td><td>Des sources recevables s'opposent; la divergence doit rester visible.</td></tr><tr><td>Non testable</td><td>Aucune observation réaliste ne peut départager la revendication formulée.</td></tr></tbody></table></div>
+<h2>Décider sans réduire le projet à une note</h2>
+<div class="grid"><article class="card"><h3>Poursuivre</h3><p>Le parcours requis pour l'étape suivante est soutenu.</p></article><article class="card"><h3>Tester</h3><p>Une ignorance décisive peut être levée par une vérification bornée.</p></article><article class="card"><h3>Borner</h3><p>La revendication doit rester dans son domaine démontré.</p></article><article class="card"><h3>Pivoter</h3><p>L'actif est utile, mais pas dans la trajectoire annoncée.</p></article><article class="card"><h3>Suspendre</h3><p>Une dépendance ou une décision externe manque.</p></article><article class="card"><h3>Arrêter</h3><p>Une contradiction établie invalide la trajectoire considérée.</p></article></div>
+<div class="callout warning"><p><strong>Pas de moyenne magique.</strong> Une bonne métrique technique ne compense pas l'absence d'utilisateur, d'autorité, de procédure ou d'action utile.</p></div></main>
   <footer>
     <p><strong>Hypothèse forte en cours de test</strong></p>
     <p>Aucun score global, aucune décision automatisée.</p>

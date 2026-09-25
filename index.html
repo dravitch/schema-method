@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="index,follow">
   <meta name="description" content="SCHEMA — site bilingue / bilingual site">
@@ -12,12 +12,14 @@
   <link rel="alternate" hreflang="en" href="/schema-method/en/">
   <link rel="alternate" hreflang="x-default" href="/schema-method/">
   <link rel="stylesheet" href="/schema-method/assets/theme.css">
+  <script type="module" src="/schema-method/assets/app.mjs"></script>
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
   
   <header>
     <a class="brand" href="/schema-method/">SCHEMA</a>
+    <button class="appearance-switch" type="button" role="switch" data-theme-toggle aria-checked="false" aria-label="Changer de thème / Change theme" title="Changer de thème / Change theme"><span class="appearance-check"><span class="appearance-icons"><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span></span></button>
   </header>
   <main id="contenu">
     <p class="eyebrow">Qualification préinvestissement — Pre-investment qualification</p>
