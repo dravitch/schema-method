@@ -203,3 +203,79 @@ if (wizard) {
   wizard.classList.add("wizard-enhanced");
   show(0);
 }
+
+const checkpoint = document.querySelector("[data-checkpoint-form]");
+
+if (checkpoint) {
+  const form = checkpoint.querySelector("form");
+  const preview = checkpoint.querySelector("[data-checkpoint-preview]");
+  const status = checkpoint.querySelector("[data-checkpoint-status]");
+  const savedMessage = status.textContent;
+  const storageKey = checkpoint.dataset.storageKey;
+  const words = JSON.parse(decodeURIComponent(checkpoint.dataset.words));
+  let saveTimer;
+
+  const values = () => Object.fromEntries([...form.elements]
+    .filter((control) => control.name)
+    .map((control) => [control.name, control.value.trim()]));
+  const present = (value) => value || words.empty;
+  const markdown = () => {
+    const data = values();
+    const sections = words.sections.map((section) => {
+      const fields = section.fields.map((field) => `**${field.label} :**\n\n${present(data[field.name])}`).join("\n\n");
+      return `## ${section.title}\n\n${fields}`;
+    }).join("\n\n---\n\n");
+    return `# ${words.title} — ${present(data.project_name)}\n\n${sections}\n`;
+  };
+  const render = () => { preview.textContent = markdown(); };
+  const flash = (message) => {
+    status.textContent = message;
+    status.dataset.visible = "true";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => { delete status.dataset.visible; }, 1800);
+  };
+  const persist = () => {
+    safeStorage.set(storageKey, JSON.stringify(values()));
+    render();
+    flash(savedMessage);
+  };
+  const restore = () => {
+    const raw = safeStorage.get(storageKey);
+    if (!raw) return;
+    try {
+      const data = JSON.parse(raw);
+      for (const [name, value] of Object.entries(data)) {
+        const control = form.elements.namedItem(name);
+        if (control && typeof value === "string") control.value = value;
+      }
+    } catch { safeStorage.remove(storageKey); }
+  };
+  const filename = () => {
+    const raw = form.elements.namedItem("project_name").value.trim() || "checkpoint";
+    const slug = raw.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "checkpoint";
+    return `${slug}-schema-checkpoint.md`;
+  };
+  form.addEventListener("input", persist);
+  form.addEventListener("submit", (event) => event.preventDefault());
+  checkpoint.querySelector("[data-checkpoint-copy]").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(markdown()); flash(words.copied); }
+    catch { preview.focus(); }
+  });
+  checkpoint.querySelector("[data-checkpoint-download]").addEventListener("click", () => {
+    const url = URL.createObjectURL(new Blob([markdown()], { type: "text/markdown;charset=utf-8" }));
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename();
+    anchor.click();
+    URL.revokeObjectURL(url);
+  });
+  checkpoint.querySelector("[data-checkpoint-print]").addEventListener("click", () => window.print());
+  checkpoint.querySelector("[data-checkpoint-reset]").addEventListener("click", () => {
+    if (!confirm(checkpoint.dataset.resetConfirm)) return;
+    form.reset();
+    safeStorage.remove(storageKey);
+    render();
+  });
+  restore();
+  render();
+}
